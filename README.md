@@ -1,93 +1,296 @@
-# Csci5709 Assignments
+# Project Title: Travel Blog
 
+A web application to manage and display travel articles and user comments. The application is built using React, TypeScript, Vite, and Material-UI. It allows users to view articles, leave comments, and navigate through different travel categories.
 
+* *Date Created*: 01 JUNE 2024# Project Title: Travel Blog
 
-## Getting started
+A web application to manage and display travel articles and user comments. The application is built using React, TypeScript, Vite, and Material-UI. It allows users to view articles, leave comments, and navigate through different travel categories.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+* *Date Created*: 01 JUNE 2024
+* *Last Modification Date*: 05 JUNE 2024
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+**Group Project Main Repository:** [https://git.cs.dal.ca/snehp/csci-5709-grp-10](https://git.cs.dal.ca/snehp/csci-5709-grp-10)
+**Tutorial 2 Repository:** [https://git.cs.dal.ca/heli/csci5709-tutorials.git](https://git.cs.dal.ca/heli/csci5709-tutorials.git)  
+**Tutorial 2 Deployment:** [https://main--csci5709-heli-desai-b008963832.netlify.app/](https://main--csci5709-heli-desai-b008963832.netlify.app/)
 
-## Add your files
+## Authors
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+* Heli Desai
+
+## Getting Started
+
+To run the project on your local machine for development and testing purposes, follow the instructions below.
+
+### Prerequisites
+
+You will need the following software installed on your machine:
+
+- React with TypeScript
+- npm (Node Package Manager)
+- Vite
+
+### Installing
+
+Follow these steps to set up your development environment:
+
+1. Clone the repository:
+   ```bash
+   git clone http://example.com/your-repo.git
+   cd your-repo
+   ```
+
+2. Install the required dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Running the tests
+
+To run the automated tests for this project, use the following commands:
+
+#### End-to-End Tests
+
+Explain what these tests test and why
+
+```bash
+npm run test:e2e
+```
+
+#### Coding Style Tests
+
+Explain what these tests test and why
+
+```bash
+npm run lint
+```
+
+## Deployment
+
+To deploy this project on a live system, follow these steps:
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. Deploy the contents of the `dist` directory to your web server.
+
+## Built With
+
+* [Vite](https://vitejs.dev/) - The build tool used
+* [React](https://reactjs.org/) - The web framework used
+* [TypeScript](https://www.typescriptlang.org/) - Language used for development
+* [Material-UI](https://mui.com/) - UI framework used for styling
+* [React Router](https://reactrouter.com/) - Used for routing
+
+## Sources Used
+
+### BlogPage.tsx
+
+*Lines 46 - 51*
+
+```typescript
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setCommentData({ ...commentData, [name]: value });
+};
+```
+
+The code above was adapted from [React documentation](https://reactjs.org/docs/forms.html) as shown below:
+
+```typescript
+const handleInputChange = (event) => {
+  const target = event.target;
+  const value = target.type === 'checkbox' ? target.checked : target.value;
+  const name = target.name;
+
+  this.setState({
+    [name]: value
+  });
+}
+```
+
+- **How**: The code in the React documentation was adapted to use functional components and hooks instead of class components and state.
+- **Why**: The code was used to handle form input changes in a functional component using hooks, which is the recommended approach in modern React development.
+- **How**: The code was modified to use the `useState` hook for state management and TypeScript for type safety.
+
+## Artificial Intelligence Tools Used
+
+* [ChatGPT](https://www.openai.com/) - AI tool used for generating and refining code snippets.
+
+### Prompt Used on ChatGPT
 
 ```
-cd existing_repo
-git remote add origin https://git.cs.dal.ca/heli/csci5709-assignments.git
-git branch -M main
-git push -uf origin main
+How do I handle form input changes in a React functional component using hooks?
 ```
 
-## Integrate with your tools
+The code prompt above was used [ChatGPT](https://www.openai.com/) to generate the code shown below:
 
-- [ ] [Set up project integrations](https://git.cs.dal.ca/heli/csci5709-assignments/-/settings/integrations)
+```typescript
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setCommentData({ ...commentData, [name]: value });
+};
+```
 
-## Collaborate with your team
+#### File Name
+*Lines 46 - 51*
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+```typescript
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setCommentData({ ...commentData, [name]: value });
+};
+```
 
-## Test and Deploy
+- **How**: The code generated by ChatGPT was implemented by replacing the class component approach with a functional component approach.
+- **Why**: ChatGPT's code was used because it provided a clear and concise way to handle form input changes using modern React practices.
+- **How**: The code was modified to include TypeScript type annotations for better type safety and error checking.
 
-Use the built-in continuous integration in GitLab.
+* *Last Modification Date*: DD MMM YYYY
+* *Lab URL*: 
+* *Git URL*: <http://example.com/>
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Authors
 
-***
+* Heli Desai
 
-# Editing this README
+## Getting Started
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+To run the project on your local machine for development and testing purposes, follow the instructions below.
 
-## Suggestions for a good README
+### Prerequisites
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+You will need the following software installed on your machine:
 
-## Name
-Choose a self-explaining name for your project.
+- Node.js
+- npm (Node Package Manager)
+- Vite
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### Installing
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Follow these steps to set up your development environment:
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+1. Clone the repository:
+   ```bash
+   git clone http://example.com/your-repo.git
+   cd your-repo
+   ```
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+2. Install the required dependencies:
+   ```bash
+   npm install
+   ```
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Running the tests
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+To run the automated tests for this project, use the following commands:
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+#### End-to-End Tests
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Explain what these tests test and why
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+```bash
+npm run test:e2e
+```
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+#### Coding Style Tests
 
-## License
-For open source projects, say how it is licensed.
+Explain what these tests test and why
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+```bash
+npm run lint
+```
+
+## Deployment
+
+To deploy this project on a live system, follow these steps:
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. Deploy the contents of the `dist` directory to your web server.
+
+## Built With
+
+* [Vite](https://vitejs.dev/) - The build tool used
+* [React](https://reactjs.org/) - The web framework used
+* [TypeScript](https://www.typescriptlang.org/) - Language used for development
+* [Material-UI](https://mui.com/) - UI framework used for styling
+* [React Router](https://reactrouter.com/) - Used for routing
+
+## Sources Used
+
+### BlogPage.tsx
+
+*Lines 46 - 51*
+
+```typescript
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setCommentData({ ...commentData, [name]: value });
+};
+```
+
+The code above was adapted from [React documentation](https://reactjs.org/docs/forms.html) as shown below:
+
+```typescript
+const handleInputChange = (event) => {
+  const target = event.target;
+  const value = target.type === 'checkbox' ? target.checked : target.value;
+  const name = target.name;
+
+  this.setState({
+    [name]: value
+  });
+}
+```
+
+- **How**: The code in the React documentation was adapted to use functional components and hooks instead of class components and state.
+- **Why**: The code was used to handle form input changes in a functional component using hooks, which is the recommended approach in modern React development.
+- **How**: The code was modified to use the `useState` hook for state management and TypeScript for type safety.
+
+## Artificial Intelligence Tools Used
+
+* [ChatGPT](https://www.openai.com/) - AI tool used for generating and refining code snippets.
+
+### Prompt Used on ChatGPT
+
+```
+How do I handle form input changes in a React functional component using hooks?
+```
+
+The code prompt above was used [ChatGPT](https://www.openai.com/) to generate the code shown below:
+
+```typescript
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setCommentData({ ...commentData, [name]: value });
+};
+```
+
+#### File Name
+*Lines 46 - 51*
+
+```typescript
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setCommentData({ ...commentData, [name]: value });
+};
+```
+
+- **How**: The code generated by ChatGPT was implemented by replacing the class component approach with a functional component approach.
+- **Why**: ChatGPT's code was used because it provided a clear and concise way to handle form input changes using modern React practices.
+- **How**: The code was modified to include TypeScript type annotations for better type safety and error checking.
