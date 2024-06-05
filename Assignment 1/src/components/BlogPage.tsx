@@ -163,7 +163,6 @@ const articles = [
     ]
   }
 ];
-
 const BlogPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const article = articles.find(article => article.id === parseInt(id || '0'));
@@ -183,8 +182,7 @@ const BlogPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (commentData.name && commentData.comment) {
-      const newComment = { ...commentData };
-      // @ts-ignore
+      const newComment = { ...commentData, photo: '/assets/placeholder.jpeg', isVerified: false };
       setComments([...comments, newComment]);
       setCommentData({ name: '', comment: '' });
     } else {
@@ -204,18 +202,17 @@ const BlogPage: React.FC = () => {
       <div className="article-content">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vel convallis vestibulum, justo
           elit vehicula libero, ac facilisis odio urna et magna. Curabitur non mauris sit amet arcu condimentum
-          aliquet.Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
-          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis.Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
+          aliquet. Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
+          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis. Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
           sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis.</p>
         <p>Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
-          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis.Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
-          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis.Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
-          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis.Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
-          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis.Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
+          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis. Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
+          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis. Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
+          sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis. Sed ac orci eu nunc vestibulum vehicula. Integer ut purus eu sapien efficitur fermentum. Aenean at odio nec
           sapien ultrices hendrerit non non lorem. Sed vitae mauris sed velit vehicula mollis.</p>
         <div className="article-images">
           {article.otherimages.map((image, index) => (
-              <img src={image} alt={`Placeholder ${index + 1}`} key={index}/>
+            <img src={image} alt={`Placeholder ${index + 1}`} key={index} />
           ))}
         </div>
         <blockquote>"{article.quote}"</blockquote>
@@ -225,8 +222,8 @@ const BlogPage: React.FC = () => {
       <div className="reviews-section">
         <h2>Reviews and Comments</h2>
         {comments.map((comment, index) => (
-            <div className="review" key={index}>
-              <img src={comment.photo} alt="Profile" className="comment-photo" />
+          <div className="review" key={index}>
+            <img src={comment.photo} alt="Profile" className="comment-photo" />
             <div className="comment-content">
               <p><strong>{comment.name} {comment.isVerified && <span className="verified-icon">✔️</span>}</strong> - {comment.comment}</p>
             </div>
