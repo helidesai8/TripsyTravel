@@ -184,6 +184,7 @@ const BlogPage: React.FC = () => {
     e.preventDefault();
     if (commentData.name && commentData.comment) {
       const newComment = { ...commentData };
+      // @ts-ignore
       setComments([...comments, newComment]);
       setCommentData({ name: '', comment: '' });
     } else {
