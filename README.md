@@ -2,20 +2,22 @@
 
 A web application to manage and display travel articles and user comments. The application is built using React, TypeScript, Vite, and Material-UI. It allows users to view articles, leave comments, and navigate through different travel categories.
 
-* *Date Created*: 01 JUNE 2024# Project Title: Travel Blog
-
-A web application to manage and display travel articles and user comments. The application is built using React, TypeScript, Vite, and Material-UI. It allows users to view articles, leave comments, and navigate through different travel categories.
-
 * *Date Created*: 01 JUNE 2024
 * *Last Modification Date*: 05 JUNE 2024
 
+### Repositories
+
 **Group Project Main Repository:** [https://git.cs.dal.ca/snehp/csci-5709-grp-10](https://git.cs.dal.ca/snehp/csci-5709-grp-10)
-**Tutorial 2 Repository:** [https://git.cs.dal.ca/heli/csci5709-tutorials.git](https://git.cs.dal.ca/heli/csci5709-tutorials.git)  
-**Tutorial 2 Deployment:** [https://main--csci5709-heli-desai-b008963832.netlify.app/](https://main--csci5709-heli-desai-b008963832.netlify.app/)
+
+**Assignment 1 Repository:** [https://git.cs.dal.ca/heli/csci5709-assignments.git](https://git.cs.dal.ca/heli/csci5709-assignments.git)  
+
+### Deployments
+**Assignment 1 Deployment:** [https://csci-5409-a1-desai-heli-b00963832.netlify.app/](https://csci-5409-a1-desai-heli-b00963832.netlify.app/)
 
 ## Authors
 
-* Heli Desai
+* Name: Heli Desai
+* Banner ID: B00963832
 
 ## Getting Started
 
@@ -25,7 +27,7 @@ To run the project on your local machine for development and testing purposes, f
 
 You will need the following software installed on your machine:
 
-- React with TypeScript
+- Node.js
 - npm (Node Package Manager)
 - Vite
 
@@ -35,8 +37,8 @@ Follow these steps to set up your development environment:
 
 1. Clone the repository:
    ```bash
-   git clone http://example.com/your-repo.git
-   cd your-repo
+   git clone https://git.cs.dal.ca/heli/csci5709-assignments.git
+   cd csci5709-assignments/Assignment \1
    ```
 
 2. Install the required dependencies:
@@ -49,18 +51,6 @@ Follow these steps to set up your development environment:
    npm run dev
    ```
 
-### Running the tests
-
-To run the automated tests for this project, use the following commands:
-
-#### End-to-End Tests
-
-Explain what these tests test and why
-
-```bash
-npm run test:e2e
-```
-
 #### Coding Style Tests
 
 Explain what these tests test and why
@@ -69,17 +59,6 @@ Explain what these tests test and why
 npm run lint
 ```
 
-## Deployment
-
-To deploy this project on a live system, follow these steps:
-
-1. Build the project:
-   ```bash
-   npm run build
-   ```
-
-2. Deploy the contents of the `dist` directory to your web server.
-
 ## Built With
 
 * [Vite](https://vitejs.dev/) - The build tool used
@@ -87,6 +66,7 @@ To deploy this project on a live system, follow these steps:
 * [TypeScript](https://www.typescriptlang.org/) - Language used for development
 * [Material-UI](https://mui.com/) - UI framework used for styling
 * [React Router](https://reactrouter.com/) - Used for routing
+* [Netlify](https://netlify.com/) - Used to host the website
 
 ## Sources Used
 
@@ -262,6 +242,47 @@ const handleInputChange = (event) => {
 - **Why**: The code was used to handle form input changes in a functional component using hooks, which is the recommended approach in modern React development.
 - **How**: The code was modified to use the `useState` hook for state management and TypeScript for type safety.
 
+
+### Comment Form Handling
+
+*Lines 58 - 68*
+
+```typescript
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  if (commentData.name && commentData.comment) {
+    const newComment = { ...commentData, photo: '/assets/placeholder.jpeg', isVerified: false };
+    setComments([...comments, newComment]);
+    setCommentData({ name: '', comment: '' });
+  } else {
+    alert('Please fill in both fields.');
+  }
+};
+```
+
+The code above was adapted from [Build React Form With This Best Practice](https://ibaslogic.com/simple-guide-to-react-form/) by Ibas Majeed:
+
+```javascript
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const { name, comment } = this.state;
+  if (name && comment) {
+    const newComment = { name, comment, photo: '/assets/placeholder.jpeg', isVerified: false };
+    this.setState((prevState) => ({
+      comments: [...prevState.comments, newComment],
+      name: '',
+      comment: ''
+    }));
+  } else {
+    alert('Please fill in both fields.');
+  }
+};
+```
+
+- **How**: The code in John Smith's article was adapted to use functional components and hooks instead of class components and state.
+- **Why**: The code was used to handle form submission and manage the comments state in a functional component using hooks.
+- **How**: The code was modified to include TypeScript type annotations and use the `useState` hook for state management.
+
 ## Artificial Intelligence Tools Used
 
 * [ChatGPT](https://www.openai.com/) - AI tool used for generating and refining code snippets.
@@ -281,7 +302,7 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaE
 };
 ```
 
-#### File Name
+#### BlogPage.tsx
 *Lines 46 - 51*
 
 ```typescript
@@ -294,3 +315,9 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaE
 - **How**: The code generated by ChatGPT was implemented by replacing the class component approach with a functional component approach.
 - **Why**: ChatGPT's code was used because it provided a clear and concise way to handle form input changes using modern React practices.
 - **How**: The code was modified to include TypeScript type annotations for better type safety and error checking.
+
+### Acknowledgements
+
+* [ChatGPT](https://www.openai.com/) - AI tool used for generating and refining code snippets.
+* [React Documentation](https://legacy.reactjs.org/docs/forms.html) - Official Documentation for Reactjs
+* [Ibadehin Mojeed](https://linkedin.com/in/ibaslogic/?originalSubdomain=ng) - For the blog article post
